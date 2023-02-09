@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box; }
+        body{background-color: rgb(157, 100, 210); display: flex; align-items: center;justify-content: center; height: 100vh;}
+        .container{background-color: rgb(214, 204, 223); width: 40%;border-radius: 5px;box-shadow: 0px 0px 3px rgb(104, 45, 45); text-align: center;}
+        h1{padding:10px;text-align: center;font-size: 30px;}
+        .input,.btn{border-radius: 5px;border: 2px solid rgb(110, 110, 220);width: 60%;height: 30px;margin: 20px;}
+        .btn{background-color: blue;color: white;}
+        .output{width:75%;height: 200px; margin:35px;border: 2px solid black;}
+        .img{padding-top:20px ;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Genrtator</h1>
+        <div class="from">
+            <input type="text" class="input" >
+            <button class="btn">Generate QR Code</button>
+        </div>
+        <div class="output">
+            <img src="" alt="" class="img">
+        </div>
+        
+    </div>
+    <script>
+        let container=document.querySelector(".container");
+       // let dis=document.querySelector(".output");
+        let btn=document.querySelector(".btn");
+        let img=document.querySelector(".img");
+        btn.onclick=function(){
+            let input=document.querySelector(".input").value;
+            
+            //console.log(input);
+            img.src=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${input}`;
+        }
+    </script>
+</body>
+</html>

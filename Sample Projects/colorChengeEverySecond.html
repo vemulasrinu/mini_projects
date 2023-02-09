@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color:white
+        }
+    </style>
+</head>
+<body>
+    <h1 class="head">Background changer</h1>
+    <script>
+        function change(){
+            latters="0123456789abcdef";
+            let color="#";
+            for(i=0;i<6;i++){
+                color=color+latters[Math.floor(Math.random()*16)];
+                console.log(color)
+             }
+            document.body.style.backgroundColor=color;
+        }
+        //change()
+        setInterval(change,2000);
+    </script>
+</body>
+</html>

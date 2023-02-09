@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container{
+            background: linear-gradient(to top,rgb(154, 212, 212),rgb(81, 150, 173),rgb(74, 74, 156));
+            display: block;
+            justify-content: center;
+            width: 500px;
+            height: 300px;
+            border-radius: 30px;
+
+        }
+        #showTime{
+            background-color: rgb(51, 55, 59);
+            color: white;
+            width: 400px;
+            height: 150px;
+            font-size: 50px;
+            margin: auto;
+            margin-top: 30px;
+            box-shadow:0 0 30px rgb(183, 125, 166);
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #buttons{
+            display: flex;
+            justify-content: space-around;
+            margin: 50px;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="showTime">
+            00 : 00 : 00 : 000
+        </div>
+        <div id="buttons">
+            <button id="start">Start</button>
+            <button id="puase">Puase</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <script>
+        let show=document.querySelector('#showTime');
+        let start=document.querySelector('#start');
+        let puase=document.querySelector('#puase');
+        let reset=document.querySelector('#reset');
+
+        let hours=0,minutes=0,seconds=0,milliseconds=0;
+        let timeref;
+        start.addEventListener('click',function(){
+           timeref=setInterval(() => {
+             milliseconds=milliseconds+10;
+
+             if(milliseconds==1000){
+                seconds=seconds+1;
+                milliseconds=0;
+                if(seconds==60){
+                    minutes=minutes+1;
+                    seconds=0;
+                    if(minutes==60){
+                        hours=hours+1;
+                        minutes=0;
+                    }
+                }
+            }
+
+            let h,m,s;
+            if(hours<10){
+                h="0"+hours;
+            }else{
+                h=hours;
+            }
+            if(minutes<10){
+                m="0"+minutes;
+            }else{
+                m=minutes;
+            }
+            if(seconds<10){
+                s="0"+seconds;
+            }else{
+                s=seconds;
+            }
+
+            show.innerText=`${h} : ${m} : ${s} : ${milliseconds}`
+            }, 10);
+        });
+
+        puase.addEventListener('click',function(){
+            clearInterval(timeref);
+        })
+
+        reset.addEventListener('click',function(){
+            clearInterval(timeref);
+            milliseconds=0;
+            minutes=0;
+            seconds=0;
+            hours=0;
+            show.innerText=`00 : 00 : 00 : 00`
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color: blueviolet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container{
+            background-color:white;
+            width: 40%;
+            min-width: 350px;
+            max-height:100%;
+            border-radius: 10px;
+           box-shadow: 0px 0px 10px rgb(68, 45, 45);
+        }
+        #getData{
+            /* background-color: aqua; */
+            position:relative;
+            padding: 10px 20px;
+            display: flex;
+            justify-content:space-around; 
+           }
+          
+        #data{
+            color:#111115;
+            width:75%;
+            height: 30px;
+            border: 2px solid #d1d3d8;
+            font-weight: 400;
+            border-radius: 6px;          
+            padding-left: 5px;
+        }
+        #data:focus{
+            outline: none;
+            border-color:#0d75ec;
+        }
+        #button{
+            width: 20%;
+            height: 30px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            color: white;
+            background-color: rgba(75, 51, 124, 0.852);
+            border:none ;
+            outline: none;
+           
+           
+            
+        }
+        #addData{
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 9px;
+            padding: 10px 20px;
+           
+        }
+
+        .task{
+            display: flex;
+            justify-content:space-around;
+             align-items: center;
+            background-color:#c5e1e6; 
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #939697;
+            margin-bottom:9px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #work{
+        width: 100%;
+        }
+        .del{
+            color: #d11a2a;
+            border-radius: 5px;
+            border: none;
+            /* background: none; */
+            cursor: pointer;
+            outline: none;
+           
+
+            }
+
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="getData">
+            <input type="text" id="data" placeholder="Enter Text To Add ..."/>
+            
+            <button id="button" >ADD</button>
+        </div>
+        <div id="addData">
+            <!-- <div  class="text">${display}<span> <i class="fa-solid fa-trash del"></i> </span> 
+                <div> -->
+        </div>
+    </div>    
+    <script>
+        let getData=document.querySelector('#data');
+        let btn=document.querySelector('#button');
+        let add=document.querySelector('#addData')
+        btn.onclick=function(){
+            if(getData.value.length==0){
+                alert("Enter a task details")
+            }
+            else{
+                add.innerHTML=add.innerHTML+`
+                <div  class="task">
+                    <span id="work">${getData.value}</span>
+                    <button class="del"> <i class="fa fa-trash"></i> </button> 
+                <div>`;
+                
+                let alltasks=document.querySelectorAll(".del");
+                for(i=0;i<alltasks.length;i++){
+                    alltasks[i].onclick=function(){
+                    this.parentNode.remove()
+                        }
+                }
+                getData.value="";
+            }
+    }
+    </script>
+        
+    
+</body>
+</html>

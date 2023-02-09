@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        /* body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        } */
+        #container{
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            transform: translate(-50%,-50%);
+            /* background: white; */
+            box-shadow: 2px 2px 8px rgb(79, 73, 73);
+            padding:1px;
+            /* height: 600px; */
+                       
+
+        }
+        #display{
+            background-color: black;
+            color: white;
+            border-radius: 8px 8px 0px 0px;
+            padding: 20px;
+            font-size: 20px;
+            box-shadow:0 0 3px rgb(67, 32, 194);
+            text-align: end; 
+            
+        }
+        .buttons{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap:1px;
+        }
+        .rows{
+            display: flex;
+            justify-content:space-around;
+            gap:1px;
+        }
+        .rows button{
+            
+            width: 50px;
+            height: 50px;
+            border-radius:5px;
+            outline: none;
+            border: none;
+            font-size: 20px;
+            text-align: center;
+            transition: 0.2s all linear;
+            margin:5px;
+            box-shadow: 0 0 3px white;
+        }
+        .rows button:hover{
+            background-color: #e0e0e0;
+        }
+        .rows button:active{
+            background-color: #d2b8b8;
+        }
+        /* #last{
+            width: 150px;
+        } */
+        #dot{
+            font-weight:600 ;
+        }
+        .spe{
+            background-color:orange;
+        }
+        .nor{
+            background-color: rgb(49, 49, 86);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="display">
+            <p id="results">0</p>
+        </div>
+        <div class=""buttons>
+            <div class="rows">
+                <button class="btn spe">C</button>
+                <button class="btn spe">DEL</button>
+                <button class="btn spe">+</button>
+                <button class="btn spe">%</button>
+            </div>
+            <div class="rows">
+                <button class="btn nor">7</button>
+                <button class="btn nor">8</button>
+                <button class="btn nor">9</button>
+                <button class="btn spe">/</button>
+            </div>
+            <div class="rows">
+                <button class="btn nor">4</button>
+                <button class="btn nor">5</button>
+                <button class="btn nor">6</button>
+                <button class="btn spe">*</button>
+            </div>
+            <div class="rows">
+                <button class="btn nor">1</button>
+                <button class="btn nor">2</button>
+                <button class="btn nor">3</button>
+                <button class="btn spe">-</button>
+            </div>
+            <div class="rows">
+                <button class="btn nor" id="dot">.</button>
+                <button class="btn nor">0</button>
+                <button class="btn nor">00</button>
+                <button class="btn spe" id="last" >=</button>
+               
+            </div>
+        </div>
+    </div>
+    <script>
+        let buttons=document.getElementsByTagName("button");
+        let display=document.querySelector("#display");
+        
+        for(i=0;i<buttons.length;i++){
+            buttons[i].onclick=function(){
+                let value=this.innerText;
+                //console.log(buttons[i]);
+                //console.log(value)
+                updateDisplay(value);
+            }
+        }
+
+         function updateDisplay(value){
+             let currentDisplay=display.innerText;
+             if(currentDisplay=="0"){
+                if(value!="C" && value!="DEL" && value!="="){
+                    display.innerText="";
+                     display.innerText=value;
+                }
+
+             }else{
+                if(value=="DEL"){
+                    display.innerText=currentDisplay.substring(0,currentDisplay.length-1);
+                    if(display.innerText==""){
+                        display.innerText="0";   
+                    }
+                }
+
+                if(value=="C"){
+                    display.innerText="0";
+                }
+                if(value!="C" && value!="DEL" && value!="="){
+                     display.innerText+=value;
+                }
+                if(value=="="){
+                    let res=display.innerText;
+                    display.innerText=eval(res)
+                }
+
+             }
+        
+        }
+    </script>
+</body>
+</html>

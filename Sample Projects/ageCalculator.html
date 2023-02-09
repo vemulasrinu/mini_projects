@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color: rgb(40, 22, 53);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            background-color: rgb(3, 21, 70);
+            width: 50%;
+            height: 250px;
+            min-width: 350px;
+            box-shadow: 0 0 3px rgb(26, 26, 245);
+            border-radius: 10px;
+
+            
+            
+        }
+        .container:active{
+          background-color:black; 
+
+        }
+        .heading{
+            background-color:orangered;
+            width: 100%;
+            height:35px;
+            margin: 0px;
+            padding: 5px;
+            text-align: center;
+            font-size: 20px;
+            color: rgb(8, 8, 8);
+            font-weight:bolder;
+            border-radius: 10px 2px ;
+        }
+        .display{
+            font-size: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 10px;
+            
+        }
+        .input{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+           
+        }
+        input{
+            background-color: orangered;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            border: 1px solid rgb(223, 135, 88);
+            padding-left: 10px;
+        }
+        input:focus{
+            box-shadow: 0 0 3px rgb(242, 234, 231);
+            border: none;
+        }
+        .btn{
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .button{
+            font-size: 12px;
+
+            width: 110px;
+            height: 28px;
+            margin: 20px;
+            background-color: rgb(3, 3, 30);
+            color: rgb(87, 87, 174);
+            box-shadow:0 2px 5px rgb(87, 87, 174);
+            border-radius:10px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        .output{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Age Calculator</div>
+        <div class="display">
+            <div class="dsp">Day</div>
+            <div class="dsp">Month</div>
+            <div class="dsp">Year</div>
+        </div>
+        <div class="input">
+            <input type="number" class="day">
+            <input type="number" class="month">
+            <input type="number" class="year">
+            
+        </div>
+        <div class="btn">
+            <button class="button">Calculate</button>
+        </div>
+        <div class="output"></div>
+    </div>
+    <script>
+        btn=document.querySelector(".button")
+        dis=document.querySelector(".output");
+       
+        btn.onclick=function(){
+            //input data to get
+            input_day=document.querySelector(".day").value;
+            input_month=document.querySelector(".month").value;
+            input_year=document.querySelector(".year").value;
+            console.log(input_day,input_month,input_year)
+        
+            if(input_day==""||input_month==""||input_year==""){
+                alert("Enter Correct Date . . . !");
+            } else{
+            
+                //today date get into this
+                let today= new Date();
+                let td=today.getDate();
+                let tm=today.getMonth()+1;
+                let ty=today.getFullYear();
+                //console.log(td, tm, ty)
+                //console.log(today)
+
+                // to check the code and impliment logic
+                if(td<input_day){
+                    td=td+30;
+                    tm=tm-1;
+                }
+                if(tm<input_month){
+                    tm=tm+12;
+                    ty=ty-1;
+                }
+                //console.log(td-input_day,tm-input_month,ty-input_year)
+                dis.innerText=`Your  are ${ty-input_year} Years ${tm-input_month} months ${td-input_day} Days Old`;
+               
+            }
+            
+           
+            
+        
+        }
+
+ </script>
+</body>
+</html>

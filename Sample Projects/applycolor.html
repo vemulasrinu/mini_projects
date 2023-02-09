@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select color</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color:black;
+        color:white;
+
+
+    }
+    h2{
+        margin:10px;
+    }
+    .container{
+        width:30%;
+        /* min-width: 360px; */
+        height: 410px;
+        /* background-color: white; */
+        display:flex;
+        /* justify-content: center; */
+        align-items: center;
+        flex-direction:column;
+        border-radius: 20px;
+    }
+    button{
+            color: white;
+            width: 100px;
+            height: 30px;
+            margin-top: 10px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <h2 align="center">Click To Apply Background-Color</h2>
+    <div class="container">
+        <button class="btn1" style="background-color:yellow">Select</button>
+        <button class="btn1" style="background-color:rgb(249, 108, 226)">Select</button>
+        <button class="btn1" style="background-color:rgb(162, 230, 255)">Select</button>
+        <button class="btn1" style="background-color:rgb(103, 158, 227)">Select</button>
+        <button class="btn1" style="background-color:rgb(249, 159, 86)">Select</button>
+        <button class="btn1" style="background-color:rgb(87, 247, 135)">Select</button>
+        <button class="btn1" style="background-color:rgb(244, 84, 84)">Select</button>
+        <button class="btn1" style="background-color:rgb(174, 45, 194)">Select</button>
+        <button class="btn1" style="background-color:rgb(34, 186, 233)">Select</button>
+        <button class="btn1" style="background-color:rgb(151, 52, 92)">Select</button>
+        
+    </div>
+<script>
+    let color=['yellow','rgb(249, 108, 226)','rgb(162, 230, 255)','rgb(103, 158, 227)','rgb(249, 159, 86)','rgb(87, 247, 135)','rgb(244, 84, 84)','rgb(174, 45, 194)','rgb(34, 186, 233)','rgb(151, 52, 92)'];
+    let btn =document.querySelectorAll('.btn1');
+    for(let i=0;i<btn.length;i++){
+        btn[i].onclick=function(){
+            document.body.style.backgroundColor=color[i];
+        
+            console.log(sty);
+            document.body.style=color;
+        }
+    }
+    
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color:blueviolet ;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #container{
+         background-color:rgb(196, 169, 220) ;  
+         width: 40%;
+         min-width: 350px;
+         height: 20%; 
+         display: flex;
+         align-items: center;
+         flex-direction: column;
+         justify-content: center;
+         border-radius: 5px;
+         padding-left:0px;
+        }
+        #getData{
+            width: 80%;
+            height: 30px;
+            margin: 20px;
+            font-size: 20px;
+            outline: none;
+            box-shadow: 0 0 2px blue;
+          }
+         
+        #getData:focus{
+            
+            border:2px solid rgb(241, 43, 43);
+            border-radius: 5px;
+               
+            
+           
+        }
+        #display{
+          
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="getData" >
+        <div id="display">Latters Count : 0</div>
+    </div>
+    <script>
+        let dis=document.querySelector("#display");
+        let fun=document.querySelector("#getData");
+        fun.oninput=function(){
+           out=this.value.length;
+            dis.innerText=`Latters Count : ${out}`;
+        }
+    </script>
+</body>
+</html>

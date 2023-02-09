@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Running Time</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+        body{
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .container{
+            background-color:rgb(239, 147, 147);
+            width: 50%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgb(67, 11, 11);
+           margin-top: 10px;
+        }
+        .time,.date{
+            width: 95%;
+            height: 70px;
+            border-radius: 10px;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            box-shadow: 0 0 5px rgb(67, 11, 11);
+            font-weight: 600;
+
+
+        }
+    </style>
+</head>
+<body bgcolor="pink">
+    <h1><center>Time & Date</center></h1>
+    <div class="container">
+        <div class="time"></div>
+        <div class="date"></div>
+    </div>
+    
+    
+<!-- <script>
+        //complete time
+var today = new Date();
+document.write(today);
+</script>-->
+<script>
+    let curtime=document.querySelector(".time")
+    let curdate=document.querySelector(".date")
+    
+    //only display date
+    var today = new Date();
+    var day=  today.getDate();
+    var month= today.getMonth()+1;
+    var year= today.getFullYear();
+    if(day>=1&&day<=9){
+        day=`0${day}`
+    }
+    if(month>=1&&month<=9){
+        month=`0${month}`
+        }
+
+curdate.innerText=`${day}-${month}-${year}`;
+ 
+</script>
+<!--
+    <script>
+    //only display time
+    var today= new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        document.write(h+  ":" + m + ":" + s)
+
+</script>
+-->
+  
+    <span id="time"></span> 
+   <script>
+       //running time
+    function getTime(){
+        var today= new Date();
+        var h=today.getHours();
+        var m=today.getMinutes();
+        var s=today.getSeconds();
+        if(h>=1&&h<=9){
+            h=`0${h}`
+        }
+        if(m>=1&&m<=9){
+            m=`0${m}`
+        }
+        if(s>=0&&s<=9){
+            s=`0${s}`
+        }
+            
+        setInterval("getTime()",1000); 
+        curtime.innerText= `${h} : ${m} : ${s}`;
+   
+    }
+    getTime();
+</script>
+
+</body>
+</html>

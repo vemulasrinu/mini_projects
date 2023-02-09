@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pascal</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        body{
+            background-color: rgb(38, 59, 59);
+            color:aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            background-color: rgb(251, 202, 202);
+            width: 40%;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            border-radius:10px;
+            box-shadow: 0 0 2px rgb(253, 30, 30);
+            padding: 10px;
+
+
+        }
+        .input{
+            width: 10;
+            
+            display: flex; 
+            justify-content: space-between; 
+            height: 40px;
+            margin-top: 20px;
+
+        }
+        .number{
+            width: 70%;
+            height: 25px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+
+        }
+        .btn{
+            background-color: aqua;
+            font-weight: 400;
+            width: 25%;
+            height: 25px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            
+        }
+        .display{
+            color: blueviolet;
+            font-display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container">        
+        <h1>Pascal Triangle</h1>
+        <div class="input">
+            <input type="text" class="number" placeholder="Enter a Number"> <br><br>
+            <button class="btn">Click Me </button>
+        </div>
+        <div class="display"></div>
+   
+    </div>
+    <script>
+        let btn=document.querySelector(".btn");
+        btn.onclick=function pascal() {
+            let display=document.querySelector(".display");
+            let n = +document.querySelector(".number").value;
+            
+            display.innerHTML=""
+            //logic write here
+           for (var i = 0;i<n+1;i++) {
+                for (var j = 0;j<i;j++) {
+                    display.innerHTML=display.innerHTML+`<span>*</span>`;
+                }
+                display.innerHTML+="<br/>";
+            
+            }
+          
+        }
+
+    </script>
+    
+    
+</body>
+
+</html>

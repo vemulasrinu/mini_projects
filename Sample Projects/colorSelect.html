@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+            background-color: rgb(232, 240, 240);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+
+        }
+        h1{
+            color:black;
+        }
+        #container{
+           
+            width: 40%;
+            height: 100px;
+           
+        }
+       
+
+       #display{
+        font-size: 40px;
+        border: white,solid,5px;
+        width:200px;
+       }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+          
+    <h1>Choose Color</h1><br>
+    <input type="color" id="getColor"><br>
+    
+    </div>
+   
+    <input type="text" id="display"><br><br><br>
+   
+    <script>
+        getcolor=document.querySelector("#getColor");
+        getvalue=document.querySelector("#display");
+        getcolor.oninput=function(){
+          let   background=this.value;
+            document.body.style.backgroundColor=background;
+            getvalue.value=background;
+        }
+    </script>
+</body>
+</html>
